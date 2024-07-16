@@ -29,7 +29,7 @@ else
     status=$(curl --connect-timeout ${TO} -s ${NODE_RPC}/status)
     if [ -z "$status" ];
     then
-        echo "ERROR: can't connect to UMEE RPC">&2 ;
+        echo "ERROR: can't connect to RPC">&2 ;
         health=2
         echo $logentry" health=$health $now"
     else
