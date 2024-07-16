@@ -80,8 +80,7 @@ tee $HOME/telegraf.conf > /dev/null <<EOF
   organization = "${ORG_NAME}"
 
   ## Destination bucket to write into.
-  bucket = "${BUCKET_NAME}"
-  
+  bucket = "${BUCKET_NAME}"  
   
 EOF
 ```
@@ -176,7 +175,7 @@ sudo cp $HOME/telegraf.conf /etc/telegraf/telegraf.conf
 sudo systemctl restart telegraf
 ```
 
-#### RPC/Senry node setup 
+#### RPC/Sentry node setup 
 
 After setup [script variables](#Setup-monitoring-scripts) you should add script input to Telegraf config:
 
