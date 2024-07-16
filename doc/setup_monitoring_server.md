@@ -157,7 +157,7 @@ docker logs grafana -f
 6. set `http://influxdb2:8086` to URL
 7. set `celestia` to Database
 8. set `admin` to User
-9. set influxDB [Grafana token](#Create token for Grafana) to Password
+9. set influxDB [Grafana token](#Create-token-for-Grafana) to Password
 
 Configured grafana influxDB datasource:
 
@@ -166,7 +166,14 @@ Configured grafana influxDB datasource:
 
 10. create new dashboard on page `http://YOUR_SERVER_IP:3000/dashboards`
     1. button NEW -> Import
-    2. select [dashboard json file]() from repo
+    2. select [dashboard json file](https://github.com/the-node75/mon_celestia/blob/main/grafana/celestia_cluster_monitoring.json) from repo
     3. press Load
+       
+11. select your datasource name and nodes config (Validator instance, Bridge instance, etc) at the top of dashboard
+
+> IMPORTANT! to see instances they must already be fully configured. 
+>   If you haven't set up Telegraf and monitoring scripts on nodes, you should go to this one
+
+12. Profit!
 
 
