@@ -160,8 +160,8 @@ Use a web browser to further customize the grafana in the GUI:
 9. set influxDB [Grafana token](#Create token for Grafana)  to Password
 
 Configured grafana:
-![Grafana datasource influxDB settings](/grafana_influx_setup0.png "Settings")
-![Grafana datasource influxDB settings part2](/grafana_influx_setup1.png "Settings")
+![Grafana datasource influxDB settings](https://github.com/the-node75/mon_celestia/blob/main/doc/grafana_influx_setup0.png "Settings")
+![Grafana datasource influxDB settings part2](https://github.com/the-node75/mon_celestia/blob/main/doc/grafana_influx_setup1.png "Settings")
 
 
 
