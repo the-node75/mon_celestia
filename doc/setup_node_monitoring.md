@@ -209,7 +209,7 @@ Check all `BRIDGE_*` variables in vars.sh
 
 ```
 cd $HOME/mon_celestia
-BRIDGE_MON_PATH=$PWD/monitor.sh
+BRIDGE_MON_PATH=$PWD/bridge_mon.sh
 
 cat << EOF >> $HOME/telegraf.conf
 
