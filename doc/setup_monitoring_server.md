@@ -150,7 +150,7 @@ docker logs grafana -f
 ### Use a web browser to further customize the grafana in the GUI:
 
 1. go to `http://YOUR_SERVER_IP:3000`
-2. log in to grafana with default username/password: *admin* / *admin*
+2. log in to grafana with default username/password: `admin / admin`
 3. setup new grafana password
 4. add new InfluxDB datasource `http://YOUR_SERVER_IP:3000/connections/datasources`
 5. select `InfluxQL` in Query language
@@ -161,12 +161,12 @@ docker logs grafana -f
 
 Configured grafana influxDB datasource:
 
-![Grafana datasource influxDB settings](https://github.com/the-node75/mon_celestia/blob/main/doc/grafana_influx_setup0.png "Settings")
-![Grafana datasource influxDB settings part2](https://github.com/the-node75/mon_celestia/blob/main/doc/grafana_influx_setup1.png "Settings")
+![Grafana datasource influxDB settings](./grafana_influx_setup0.png "Settings")
+![Grafana datasource influxDB settings part2](./grafana_influx_setup1.png "Settings")
 
 10. create new dashboard on page `http://YOUR_SERVER_IP:3000/dashboards`
     1. button NEW -> Import
-    2. select [dashboard json file](https://github.com/the-node75/mon_celestia/blob/main/grafana/celestia_cluster_monitoring.json) from repo
+    2. select [dashboard json file](../grafana/celestia_cluster_monitoring.json) from repo
     3. press Load
        
 11. select your datasource name and nodes config (Validator instance, Bridge instance, etc) at the top of dashboard
