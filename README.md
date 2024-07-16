@@ -20,6 +20,11 @@ It is possible to install the software on the node server instance. Hovewer, it 
 * Bridge node monitoring (binary version, bridge height, bridge height lag)
 * RPC/Sentry nodes monitoring
 
+## Dashboard View
+
+![Grafana dashboard screenshot](./doc/celestia_cluster_dashboard.png)
+
+
 ## The following steps will guide you through the setup process:
 
 * [Setup monitoring server ](./doc/setup_monitoring_server.md)
