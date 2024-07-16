@@ -16,6 +16,7 @@ COS_WALADDR=          # validator wallet address, example: celestia123454563676*
 BRIDGE_BINARY=        # insert path to celestia bridge node binary, example: /root/go/bin/celestia
 BRIDGE_STORE_PATH=    # insert paht to bridge storadge, example: /root/.celestia
 BRIDGE_RPC_PORT=      # insert port of celestia bridge node rpc
+BRIDGE_REF_RPC_NODE="http://localhost:${COS_PORT_RPC}"  # url to reference consensus node(for getting actual block height), by default - current cons node 
 
 
 # generated variables, do not change
