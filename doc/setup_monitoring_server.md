@@ -147,22 +147,26 @@ Check grafana logs:
 docker logs grafana -f
 ```
 
-Use a web browser to further customize the grafana in the GUI:
+### Use a web browser to further customize the grafana in the GUI:
 
-1. go to http://YOUR_SERVER_IP:3000.
+1. go to `http://YOUR_SERVER_IP:3000`
 2. log in to grafana with default username/password: *admin* / *admin*
 3. setup new grafana password
-4. add new InfluxDB datasource http://YOUR_SERVER_IP:3000/connections/datasources
+4. add new InfluxDB datasource `http://YOUR_SERVER_IP:3000/connections/datasources`
 5. select `InfluxQL` in Query language
 6. set `http://influxdb2:8086` to URL
 7. set `celestia` to Database
 8. set `admin` to User
-9. set influxDB [Grafana token](#Create token for Grafana)  to Password
+9. set influxDB [Grafana token](#Create token for Grafana) to Password
 
-Configured grafana:
+Configured grafana influxDB datasource:
+
 ![Grafana datasource influxDB settings](https://github.com/the-node75/mon_celestia/blob/main/doc/grafana_influx_setup0.png "Settings")
 ![Grafana datasource influxDB settings part2](https://github.com/the-node75/mon_celestia/blob/main/doc/grafana_influx_setup1.png "Settings")
 
-
+10. create new dashboard on page `http://YOUR_SERVER_IP:3000/dashboards`
+    1. button NEW -> Import
+    2. select [dashboard json file]() from repo
+    3. press Load
 
 
