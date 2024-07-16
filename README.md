@@ -13,9 +13,14 @@ On monitoring server:
 
 It is possible to install the software on the node server instance. Hovewer, it is better to move it to standalone instance with opened web access to watch it from browser at any location.
 
-## The following steps will guide you through the setup process:
+## Features 
 
-### Monitoring server installation 
+* General server's metrics (CPU load, RAM/Swap usage, Storage, Network statistic)
+* Validator monitoring (binary version, sync state, block height, peers cnt, VP, missed blocks, etc)
+* Bridge node monitoring (binary version, bridge height, bridge height lag)
+* RPC/Sentry nodes monitoring
+
+## The following steps will guide you through the setup process:
 
 * [Setup monitoring server ](./doc/setup_monitoring_server.md)
 * [Setup monitoring on node](./doc/setup_node_monitoring.md)
