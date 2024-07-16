@@ -5,7 +5,7 @@ To monitor you node your should have installed and configured:
 On node server:
 * [Celestia consensus + DA nodes](https://docs.celestia.org/) which should be configured (correct moniker, validator key, network ports setup)
 * [Telegraf agent](https://www.influxdata.com/time-series-platform/telegraf/)
-* [mon_umee](https://github.com/the-node75/mon_celestia) scripts set
+* [mon_celestia](https://github.com/the-node75/mon_celestia) scripts set
 
 On monitoring server:
 * [InfluxDB](https://www.influxdata.com/products/influxdb/)
