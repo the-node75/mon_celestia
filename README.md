@@ -16,3 +16,8 @@ It is possible to install the software on the node server instance. Hovewer, it 
 ## The following steps will guide you through the setup process:
 
 ### Monitoring server installation 
+
+* [Setup monitoring server ](./doc/setup_monitoring_server.md)
+* [Setup monitoring on node](./doc/setup_node_monitoring.md)
+
+
