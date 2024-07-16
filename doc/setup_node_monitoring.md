@@ -89,15 +89,15 @@ EOF
 Setup config
 
 ```
-sudo cp telegraf.conf /etc/telegraf/telegraf.conf
+sudo cp $HOME/telegraf.conf /etc/telegraf/telegraf.conf
 sudo systemctl restart telegraf
 ```
 
 After that, your instance should start transmitting general information about the system (CPU,RAM,Drives,Network metrics)
 
-#### Validator node setup 
+#### Setup monitoring scripts 
 
-Additional actions are required to tx validator metrics
+Additional actions are required to tx node metrics
 
 ```
 cd $HOME
@@ -135,4 +135,99 @@ Set bridge node rpc port to `BRIDGE_RPC_PORT`
 
 Edit `BRIDGE_REF_RPC_NODE` if you want to use a different reference consensus rpc endpoint 
 
+
+Check variables and scripts:
+```
+./monitor.sh
+./balance_mon.sh
+./bridge_mon.sh
+```
+
+#### Validator node setup 
+
+After setup [script variables](#Setup-monitoring-scripts) you should add script input to Telegraf config:
+
+Check `MON_MODE=val` in vars.sh
+
+```
+cd $HOME/mon_celestia
+MONITOR_PATH=$PWD/monitor.sh
+BALANCE_MON_PATH=$PWD/balance_mon.sh
+
+cat << EOF >> $HOME/telegraf.conf
+
+[[inputs.exec]]
+  commands = ["sudo su -c ${MONITOR_PATH} -s /bin/bash root"]
+  interval = "15s"
+  timeout = "5s"
+  data_format = "influx"
+  data_type = "integer"
+
+[[inputs.exec]]
+  commands = ["sudo su -c ${BALANCE_MON_PATH} -s /bin/bash root"]
+  interval = "60s"
+  timeout = "5s"
+  data_format = "influx"
+  data_type = "integer"
+  
+EOF
+
+sudo cp $HOME/telegraf.conf /etc/telegraf/telegraf.conf
+sudo systemctl restart telegraf
+```
+
+#### RPC/Senry node setup 
+
+After setup [script variables](#Setup-monitoring-scripts) you should add script input to Telegraf config:
+
+Check `MON_MODE=rpc` in vars.sh
+
+```
+cd $HOME/mon_celestia
+MONITOR_PATH=$PWD/monitor.sh
+
+cat << EOF >> $HOME/telegraf.conf
+
+[[inputs.exec]]
+  commands = ["sudo su -c ${MONITOR_PATH} -s /bin/bash root"]
+  interval = "15s"
+  timeout = "5s"
+  data_format = "influx"
+  data_type = "integer"
+  
+EOF
+
+sudo cp $HOME/telegraf.conf /etc/telegraf/telegraf.conf
+sudo systemctl restart telegraf
+```
+
+#### Bridge node setup 
+
+After setup [script variables](#Setup-monitoring-scripts) you should add script input to Telegraf config:
+
+Check all `BRIDGE_*` variables in vars.sh
+
+```
+cd $HOME/mon_celestia
+BRIDGE_MON_PATH=$PWD/monitor.sh
+
+cat << EOF >> $HOME/telegraf.conf
+
+[[inputs.exec]]
+  commands = ["sudo su -c ${BRIDGE_MON_PATH} -s /bin/bash root"]
+  interval = "15s"
+  timeout = "5s"
+  data_format = "influx"
+  data_type = "integer"
+  
+EOF
+
+sudo cp $HOME/telegraf.conf /etc/telegraf/telegraf.conf
+sudo systemctl restart telegraf
+```
+
+Check Telegraf status 
+```
+sudo systemctl status telegraf
+```
 
