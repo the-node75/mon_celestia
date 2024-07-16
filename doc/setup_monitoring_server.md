@@ -77,7 +77,7 @@ Set bucket id as bash variable (use your ID):
 BUCKET_ID=f9************1a
 ```
 
-Create token for nodes (write only)
+#### Create token for nodes
 
 ```
 docker exec influxdb2 \
@@ -96,7 +96,7 @@ ID                      Description     Token                                   
 > IMPORTANT! Save your token in safe place
 > You'll need it when you set up Telegraf on nodes.
 
-Create token for Grafana (read only)
+#### Create token for Grafana
 
 ```
 # token for grafana
@@ -134,7 +134,7 @@ sudo chown -R $(id -u):$(id -u) $MYGF_HOME
 Start grafana daemon
 ```
 docker run -d --name=grafana \
-  --restart always \
+	--restart always \
 	-p 3000:3000  \
 	--network monitoring \
 	--user "$(id -u)" \
@@ -152,6 +152,17 @@ Use a web browser to further customize the grafana in the GUI:
 1. go to http://YOUR_SERVER_IP:3000.
 2. log in to grafana with default username/password: *admin* / *admin*
 3. setup new grafana password
-4. 
+4. add new InfluxDB datasource http://YOUR_SERVER_IP:3000/connections/datasources
+5. select `InfluxQL` in Query language
+6. set `http://influxdb2:8086` to URL
+7. set `celestia` to Database
+8. set `admin` to User
+9. set influxDB [Grafana token](#Create token for Grafana)  to Password
+
+Configured grafana:
+![Grafana datasource influxDB settings](/grafana_influx_setup0.png "Settings")
+![Grafana datasource influxDB settings part2](/grafana_influx_setup1.png "Settings")
+
+
 
 
